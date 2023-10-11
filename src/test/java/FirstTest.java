@@ -42,7 +42,7 @@ public class FirstTest {
         WebElement searchButton = driver.findElement(By.xpath("//*[@id='search-form']/fieldset/button"));
         searchButton.click();
 
-//        driver.close();
+        driver.close();
     }
 
 
