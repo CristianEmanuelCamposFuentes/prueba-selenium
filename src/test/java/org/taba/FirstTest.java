@@ -1,5 +1,6 @@
 package org.taba;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,6 +45,10 @@ public class FirstTest {
         WebElement searchButton = driver.findElement(By.xpath("//*[@id='search-form']/fieldset/button"));
         searchButton.click();
 
-        driver.close();
+
+//        driver.close();
+        WebElement footerLink = driver.findElement(By.cssSelector("#mw-normal-catlinks > ul > li:nth-child(1) > a"));
+        Assert.assertEquals(footerLink.getText(), "Pruebas de software");
+
     }
 }
