@@ -13,7 +13,7 @@ public class FirstTest {
 
     @Test
     public void testWiki(){
-        String driverPath = "C:\\Users\\crist\\IdeaProjects\\PruebaSelenium\\src\\main\\resources\\drivers\\chromedriver.exe";
+        String driverPath = "D:\\workspace\\chromedriver-win64\\chromedriver.exe";
         // Agregar a la propiedad de sistema la ruta al
         // ejecutable de chromedriver
         System.setProperty("webdriver.chrome.driver", driverPath);
@@ -46,6 +46,4 @@ public class FirstTest {
 
         driver.close();
     }
-
-
 }

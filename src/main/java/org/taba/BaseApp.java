@@ -22,8 +22,8 @@ public class BaseApp {
     // El objeto Actions realiza las acciones de interaccion del teclado y el mouse
     protected static Actions actions;
 
-    // Bloque estatico para el drive para todas las instancias futuras de otras clases de pagina
-    // Le agrego una espera de 10seg
+    // Bloque estatico para el drive para todas las instancias futuras de otras clases de página
+    // Le agrego una espera de 10 seg
     static {
         // A futuro va a servir para personalizar configuraciones de datos(perfil, extensiones, etc)
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -52,15 +52,15 @@ public class BaseApp {
     }
 
     // Metodo que devuelve un web element y Selenium puede trabajar con el, se va a crear esta instancia del WebElement y
-    // Navegador (con sus metodos), para despues a traves de la herencia reutilizar en tod o el proyecto.
+    // Navegador (con sus metodos), para después a traves de la herencia reutilizar en tod o el proyecto.
     private WebElement Find(String locator){
-        // Espera hasta que el elemento este presente en la pagina
+        // Espera hasta que el elemento este presente en la página
         // Utiliza el objeto wait para esperar, lleva dos parametros: WebDriverWait(instanciaDelNavegador, tiempoDeEspera)
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
     public void clickElement(String locator){
-        /* Le agrego una espera al elemento web para cuando sea visible y este disponible para clickear
+        /* Le agrego una espera al elemento web para cuando sea visible y este disponible para cliquear
         /*
          * El objeto By en Selenium se utiliza para localizar elementos en la página web. En otras palabras, es una forma
          *  de decirle a Selenium cómo encontrar un elemento específico en el DOM (Documento de Objeto del Modelo) de la página.
@@ -69,7 +69,7 @@ public class BaseApp {
 
         element.click();
         /* Otra forma utilizando Find
-        Dado un xpath (locator), va a localizarlo y va a hacer un click sobre este elemento
+        Dado un xpath (locator), va a localizarlo y va a hacer un clic sobre este elemento
         Find(locator).click();*/
     }
 
