@@ -48,7 +48,12 @@ public class FirstTest {
 
 //        driver.close();
         WebElement footerLink = driver.findElement(By.cssSelector("#mw-normal-catlinks > ul > li:nth-child(1) > a"));
+
+        Assert.assertTrue(footerLink.isDisplayed());
         Assert.assertEquals(footerLink.getText(), "Pruebas de software");
 
+        // Listas de elementos
+        List<WebElement> menuSelenium_list = driver.findElements(By.className("vector-toc-list"));
+        Assert.assertTrue(!menuSelenium_list.isEmpty());
     }
 }
