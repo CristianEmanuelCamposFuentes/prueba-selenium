@@ -6,6 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.sql.Time;
+import java.time.Duration;
+import java.util.List;
 
 public class FirstTest {
 
@@ -13,7 +19,7 @@ public class FirstTest {
     WebDriver driver = null;
 
     @Test
-    public void testWiki(){
+    public void testWiki() {
         String driverPath = "D:\\workspace\\chromedriver-win64\\chromedriver.exe";
         // Agregar a la propiedad de sistema la ruta al
         // ejecutable de chromedriver
@@ -46,14 +52,22 @@ public class FirstTest {
         searchButton.click();
 
 
-//        driver.close();
         WebElement footerLink = driver.findElement(By.cssSelector("#mw-normal-catlinks > ul > li:nth-child(1) > a"));
 
         Assert.assertTrue(footerLink.isDisplayed());
         Assert.assertEquals(footerLink.getText(), "Pruebas de software");
 
         // Listas de elementos
-        List<WebElement> menuSelenium_list = driver.findElements(By.className("vector-toc-list"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        List<WebElement> menuSelenium_list =
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("vector-toc-list")));
+
+
         Assert.assertTrue(!menuSelenium_list.isEmpty());
+
+        Assert.assertEquals(menuSelenium_list.size(), 9);
+
+        driver.close();
     }
 }
