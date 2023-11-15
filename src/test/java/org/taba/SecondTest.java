@@ -38,6 +38,6 @@ public class SecondTest {
         WebElement listOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#typeahead-suggestions > div > a:nth-child(6) > div.suggestion-text > h3")));
 
         listOption.click();
-//        driver.close();
+        driver.close();
     }
 }
