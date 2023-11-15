@@ -24,7 +24,7 @@ public class SecondTest {
 
         // Espera
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//        driver.manage().window().maximize();
+
         // Ya seteado el driver, comenzamos a utilizarlo. Navegar a Wikipedia
         driver.navigate().to("https://www.wikipedia.org/");
 
@@ -36,8 +36,8 @@ public class SecondTest {
 
         // Elegir una opcion de la lista
         WebElement listOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#typeahead-suggestions > div > a:nth-child(6) > div.suggestion-text > h3")));
-
         listOption.click();
+
         driver.close();
     }
 }
