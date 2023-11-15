@@ -18,13 +18,13 @@ public class SecondTest {
 
     @Test
     public void testWikipedia(){
-        String driverPath = "C:\\Users\\crist\\IdeaProjects\\PruebaSelenium\\src\\main\\resources\\drivers\\chromedriver.exe";
+        String driverPath = "D:\\workspace\\chromedriver-win64\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
 
         // Espera
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         // Ya seteado el driver, comenzamos a utilizarlo. Navegar a Wikipedia
         driver.navigate().to("https://www.wikipedia.org/");
 
