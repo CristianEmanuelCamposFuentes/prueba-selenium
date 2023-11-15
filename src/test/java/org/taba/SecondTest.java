@@ -30,12 +30,14 @@ public class SecondTest {
 
         WebElement searchInput = wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath("//*[@id=\"searchInput\"]"))));
         WebElement footerLink = driver.findElement(By.cssSelector("#www-wikipedia-org > div.footer > div:nth-child(1) > div > div:nth-child(3) > a > span"));
-
         // Escribir en el input
         searchInput.sendKeys("Seleccion Argentina");
-
         softAssert.assertEquals(footerLink.getText(), "Puedes apoyar nuestro trabajo con una donación.");
 
-        driver.close();
+        // Elegir una opcion de la lista
+        WebElement listOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#typeahead-suggestions > div > a:nth-child(6) > div.suggestion-text > h3")));
+
+        listOption.click();
+//        driver.close();
     }
 }
