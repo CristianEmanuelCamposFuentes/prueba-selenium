@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SecondTest {
     WebDriver driver = null;
@@ -29,17 +30,31 @@ public class SecondTest {
         driver.navigate().to("https://www.wikipedia.org/");
 
         WebElement searchInput = wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath("//*[@id=\"searchInput\"]"))));
-        WebElement footerLink = driver.findElement(By.cssSelector("#www-wikipedia-org > div.footer > div:nth-child(1) > div > div:nth-child(3) > a > span"));
-        // Escribir en el input
 
-//        softAssert.assertEquals(footerLink.getText(),"Puedes apoyar nuestro trabajo con una donación.");
+        // Escribir en el input
         searchInput.sendKeys("Seleccion Argentina");
+
+
+
         // Elegir una opcion de la lista
         WebElement listOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#typeahead-suggestions > div > a:nth-child(6) > div.suggestion-text > h3")));
         listOption.click();
 
+        WebElement headerTitle = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#firstHeading > span")));
+        softAssert.assertEquals(headerTitle.getText(),"Equipo de Copa Davis de Argentina");
+
+        // Analizando lista
+        List<WebElement> playersList = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                By.cssSelector(".references > li")));
+
+        // Comprueba si la lista es de 5 elementos
+        softAssert.assertEquals(playersList.size(),5);
+
+        // Comprueba si el titulo esta desplegado
+        softAssert.assertTrue(headerTitle.isDisplayed());
+
         softAssert.assertAll();
 
-//        driver.close();
+        driver.close();
     }
 }
