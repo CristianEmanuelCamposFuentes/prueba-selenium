@@ -1,11 +1,17 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class HomePage {
+
+    // DRIVER
+    WebDriver driver;
+
+
     @FindBy(id = "searchInput")
     private WebElement searchInput;
 
@@ -22,11 +28,14 @@ public class HomePage {
         this.searchInput.sendKeys(text);
     }
 
-    public String getFooterText(){
+    public String getFooterText() {
         // return para obtener el valor fuera del metodo
         return this.footerLink.getText();
     }
 
-    // Constructor
-
+    // Constructor del driver, debe estar para funcionar
+    public HomePage(WebDriver driver, String url) {
+        this.driver = driver;
+        this.driver.get(url);
+    }
 }
