@@ -33,9 +33,8 @@ public class SecondTest {
 
         homePage.setSearchInput("Selenium");
 
-        // Elegir una opcion de la lista
-        WebElement listOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#typeahead-suggestions > div > a:nth-child(6) > div.suggestion-text > h3")));
-        listOption.click();
+        WebElement listOptions = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#typeahead-suggestions > div > a:nth-child(6) > div.suggestion-text > h3")));
+        homePage.clickTo(listOptions);
 
         WebElement headerTitle = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#firstHeading > span")));
         softAssert.assertEquals(headerTitle.getText(),"Equipo de Copa Davis de Argentina");

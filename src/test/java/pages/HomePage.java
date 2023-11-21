@@ -33,6 +33,10 @@ public class HomePage {
         return this.footerLink.getText();
     }
 
+    public void clickTo(WebElement webElement){
+        webElement.click();
+    }
+
     // Constructor del driver, debe estar para funcionar
     public HomePage(WebDriver driver, String url) {
         this.driver = driver;
