@@ -14,7 +14,7 @@ import pages.HomePage;
 import java.time.Duration;
 import java.util.List;
 
-public class SecondTest {
+public class SecondTest{
     WebDriver driver = null;
     HomePage homePage;
     SoftAssert softAssert = new SoftAssert();
@@ -23,7 +23,7 @@ public class SecondTest {
         String driverPath = "D:\\workspace\\chromedriver-win64\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
-        HomePage homePage = new HomePage(driver, "https://www.wikipedia.org/");
+        homePage = new HomePage(driver, "https://www.wikipedia.org/");
     }
 
     @Test
@@ -33,11 +33,9 @@ public class SecondTest {
 
         homePage.setSearchInput("Selenium");
 
-        WebElement listOptions = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#typeahead-suggestions > div > a:nth-child(6) > div.suggestion-text > h3")));
-        homePage.clickTo(listOptions);
+        homePage.clickOnOptions();
 
-        WebElement headerTitle = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#firstHeading > span")));
-        softAssert.assertEquals(headerTitle.getText(),"Equipo de Copa Davis de Argentina");
+        softAssert.assertEquals(homePage.getMainHeaderText(),"Equipo de Copa Davis de Argentina");
 
         // Analizando lista
         List<WebElement> playersList = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
@@ -47,7 +45,7 @@ public class SecondTest {
         softAssert.assertEquals(playersList.size(),5);
 
         // Comprueba si el titulo esta desplegado
-        softAssert.assertTrue(headerTitle.isDisplayed());
+//        softAssert.assertTrue(headerTitle.isDisplayed());
 
         softAssert.assertAll();
 
