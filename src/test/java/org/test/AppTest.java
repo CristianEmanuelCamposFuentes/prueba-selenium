@@ -1,4 +1,4 @@
-package org.taba;
+package org.test;
 
 class AppTest {
 

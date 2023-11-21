@@ -1,4 +1,4 @@
-package org.taba;
+package org.test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,35 +6,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import pages.HomePage;
 
 import java.time.Duration;
 import java.util.List;
 
 public class SecondTest {
     WebDriver driver = null;
-
+    HomePage homePage;
     SoftAssert softAssert = new SoftAssert();
-
-    @Test
-    public void testWikipedia(){
+    @BeforeTest
+    public void beforeTest(){
         String driverPath = "D:\\workspace\\chromedriver-win64\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
+        HomePage homePage = new HomePage(driver, "https://www.wikipedia.org/");
+    }
 
+    @Test
+    public void testWikipedia(){
         // Espera
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        // Ya seteado el driver, comenzamos a utilizarlo. Navegar a Wikipedia
-        driver.navigate().to("https://www.wikipedia.org/");
-
-        WebElement searchInput = wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath("//*[@id=\"searchInput\"]"))));
-
-        // Escribir en el input
-        searchInput.sendKeys("Seleccion Argentina");
-
-
+        homePage.setSearchInput("Selenium");
 
         // Elegir una opcion de la lista
         WebElement listOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#typeahead-suggestions > div > a:nth-child(6) > div.suggestion-text > h3")));
