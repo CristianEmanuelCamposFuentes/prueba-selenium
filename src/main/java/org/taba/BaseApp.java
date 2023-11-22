@@ -42,24 +42,24 @@ public class BaseApp {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public static void navigateTo(String url){
+    public static void navigateTo(String url) {
         // get() carga una pagina web nueva en la ventana del navegador actual
         driver.get(url);
     }
 
-    public static void closeBrowser(){
+    public static void closeBrowser() {
         driver.quit();
     }
 
     // Metodo que devuelve un web element y Selenium puede trabajar con el, se va a crear esta instancia del WebElement y
     // Navegador (con sus metodos), para después a traves de la herencia reutilizar en tod o el proyecto.
-    private WebElement Find(String locator){
+    private WebElement Find(String locator) {
         // Espera hasta que el elemento este presente en la página
         // Utiliza el objeto wait para esperar, lleva dos parametros: WebDriverWait(instanciaDelNavegador, tiempoDeEspera)
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
-    public void clickElement(String locator){
+    public void clickElement(String locator) {
         /* Le agrego una espera al elemento web para cuando sea visible y este disponible para cliquear
         /*
          * El objeto By en Selenium se utiliza para localizar elementos en la página web. En otras palabras, es una forma
@@ -73,54 +73,54 @@ public class BaseApp {
         Find(locator).click();*/
     }
 
-    public void write(String locator, String textToWrite){
+    public void write(String locator, String textToWrite) {
         // Limpiar el campo de texto
         Find(locator).clear();
         // Enviar el texto al campo de texto
         Find(locator).sendKeys(textToWrite);
     }
 
-    public void hoverOverElement(String locator){
+    public void hoverOverElement(String locator) {
         // Lleva el mouse hasta el webElement
         actions.moveToElement(Find(locator));
     }
 
-    public void doubleClick(String locator){
+    public void doubleClick(String locator) {
         // Doble click en el webElement
         actions.doubleClick(Find(locator));
     }
 
-    public void rightClick(String locator){
+    public void rightClick(String locator) {
         // Click derecho en el webElement
         actions.contextClick(Find(locator));
     }
 
-    public void dismissAlert(){
+    public void dismissAlert() {
         // Cierra el cartel de alerta
         driver.switchTo().alert().dismiss();
     }
 
-    public String textFromElement(String locator){
+    public String textFromElement(String locator) {
         // Obtiene el texto dentro del webElement
         return Find(locator).getText();
     }
 
-    public boolean elementIsDisplayed(String locator){
+    public boolean elementIsDisplayed(String locator) {
         // Devuelve un booleano si es mostrado o no
         return Find(locator).isDisplayed();
     }
 
-    public boolean elementIsSelected(String locator){
+    public boolean elementIsSelected(String locator) {
         // Devuelve un booleano si es seleccionado o no
         return Find(locator).isSelected();
     }
 
-    public boolean elementIsEnabled(String locator){
+    public boolean elementIsEnabled(String locator) {
         // Devuelve un booleano si esta habilitado o no
         return Find(locator).isEnabled();
     }
 
-    public List<WebElement> bringMeAllElements(String locator){
+    public List<WebElement> bringMeAllElements(String locator) {
         // Retorna una lista de WebElements
         return driver.findElements(By.className(locator));
     }

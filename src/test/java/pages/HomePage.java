@@ -7,11 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class HomePage {
-
-    // DRIVER
-    WebDriver driver;
-
+public class HomePage extends BasePage {
     @FindBy(id = "searchInput")
     private WebElement searchInput;
 
@@ -31,44 +27,45 @@ public class HomePage {
 
     // Metodos
     public void setSearchInput(String text) {
+        this.isElementDisplayed(this.searchInput);
         searchInput.sendKeys(text);
     }
 
     public String getFooterText() {
+        this.isElementDisplayed(this.footerLink);
+
         // return para obtener el valor fuera del metodo
         return this.footerLink.getText();
     }
 
     public String getMainHeaderText() {
+
+        this.isElementDisplayed(this.mainHeader);
         // return para obtener el valor fuera del metodo
         return this.mainHeader.getText();
     }
 
-    public void clickTo(WebElement webElement){
+    public void clickTo(WebElement webElement) {
         webElement.click();
     }
 
-    public void clickOnSearch(){
+    public void clickOnSearch() {
+        this.isElementDisplayed(this.searchButton);
         this.searchButton.click();
     }
 
-    public void clickOnOptions(){
+    public void clickOnOptions() {
+        this.isElementDisplayed(this.listOptions);
         this.listOptions.click();
     }
 
     // Constructor del driver, debe estar para funcionar
+    // En este caso se hereda de BasePage
     public HomePage(WebDriver driver, String url) {
-        this.driver = driver;
+        super(driver);
         this.driver.get(url);
-        // Se debe utilizar para inicializar todos los elementos declarados y la pagina
         PageFactory.initElements(driver, this);
     }
-
-
-//    // Espera
-//    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
-
 //    // Analizando lista
 //    List<WebElement> playersList = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
 //            By.cssSelector(".references > li")));

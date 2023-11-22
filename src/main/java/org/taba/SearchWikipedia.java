@@ -6,11 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 
-public class SearchWikipedia extends BaseApp{
-        public SearchWikipedia(WebDriver driver){
-                super(driver);
-        }
-        public void search(){
+public class SearchWikipedia extends BaseApp {
+    public SearchWikipedia(WebDriver driver) {
+        super(driver);
+    }
+
+    public void search() {
 
         driver.get("https://www.selenium.dev/selenium/web/web-form.html");
 
