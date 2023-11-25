@@ -3,7 +3,6 @@ package test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -19,13 +18,6 @@ public class FirstTest {
 
     @Test
     public void testWiki() {
-        String driverPath = "D:\\workspace\\chromedriver-win64\\chromedriver.exe";
-        // Agregar a la propiedad de sistema la ruta al
-        // ejecutable de chromedriver
-        System.setProperty("webdriver.chrome.driver", driverPath);
-        // Ahora si setear el driver
-        driver = new ChromeDriver();
-
         driver.manage().window().maximize();
 
         // Vamo a guglea
@@ -50,7 +42,6 @@ public class FirstTest {
         WebElement searchButton = driver.findElement(By.xpath("//*[@id='search-form']/fieldset/button"));
         searchButton.click();
 
-
         WebElement footerLink = driver.findElement(By.cssSelector("#mw-normal-catlinks > ul > li:nth-child(1) > a"));
 
         Assert.assertTrue(footerLink.isDisplayed());
@@ -62,11 +53,8 @@ public class FirstTest {
         List<WebElement> menuSelenium_list =
                 wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("vector-toc-list")));
 
-
         Assert.assertTrue(!menuSelenium_list.isEmpty());
 
         Assert.assertEquals(menuSelenium_list.size(), 9);
-
-        driver.close();
     }
 }
