@@ -11,7 +11,7 @@ public class HomePage extends BasePage {
     @FindBy(id = "searchInput")
     private WebElement searchInput;
 
-    @FindBy(css = "#mw-normal-catlinks > ul > li:nth-child(1) > a")
+    @FindBy(css = "#www-wikipedia-org > div.footer > div:nth-child(1) > div > div:nth-child(3) > a > span" )
     private WebElement footerLink;
     @FindBy(xpath = "//*[@id='search-form']/fieldset/button")
     private WebElement searchButton;

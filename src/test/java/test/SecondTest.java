@@ -14,11 +14,8 @@ public class SecondTest extends BaseTest {
     public void testWikipedia() {
         homePage = new HomePage(driver, "https://www.wikipedia.com");
         homePage.setSearchInput("Selenium");
-
         homePage.clickOnOptions();
-
         softAssert.assertEquals(homePage.getMainHeaderText(), "Seleniuro de cinc");
-//        homePage.clickOnSearch();
         softAssert.assertAll();
     }
 }

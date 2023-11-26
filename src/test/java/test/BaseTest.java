@@ -11,6 +11,8 @@ public class BaseTest {
     // Protected cada variable que voy a heredar
     protected WebDriver driver = null;
 
+    HomePage homePage;
+
     @BeforeTest
     public void beforeTest() {
         String driverPath = "D:\\workspace\\chromedriver-win64\\chromedriver.exe";
@@ -19,7 +21,6 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", driverPath);
         // Ahora si setear el driver antes de cada prueba
         driver = new ChromeDriver();
-
     }
 
     @AfterTest
@@ -27,7 +28,14 @@ public class BaseTest {
         // De todas formas, se recomienda quit() en lugar de close(),
         // para cerrar completamente el navegador y liberar recursos
         if (driver != null){
-            driver.close();
+//            driver.close();
         }
+    }
+
+    //METODO PARA OBTENER EL HOMEPAGE
+
+
+    public HomePage getHomePage() {
+        return new HomePage(driver, "https://www.wikipedia.org");
     }
 }
