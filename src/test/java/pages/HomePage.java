@@ -64,6 +64,7 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver, String url) {
         super(driver);
         this.driver.get(url);
+        PageFactory.initElements(driver, this);
     }
 //    // Analizando lista
 //    List<WebElement> playersList = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(

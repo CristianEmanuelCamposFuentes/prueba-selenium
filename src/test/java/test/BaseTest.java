@@ -2,6 +2,7 @@ package test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import pages.HomePage;
@@ -18,6 +19,7 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", driverPath);
         // Ahora si setear el driver antes de cada prueba
         driver = new ChromeDriver();
+
     }
 
     @AfterTest
@@ -27,6 +29,5 @@ public class BaseTest {
         if (driver != null){
             driver.close();
         }
-
     }
 }
