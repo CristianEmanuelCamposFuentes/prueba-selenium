@@ -1,5 +1,6 @@
 package test;
 
-class AppTest {
+class AppTest extends BaseTest {
+    // Probar un test basado en alguna lista
 
 }

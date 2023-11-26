@@ -11,10 +11,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-public class FirstTest {
-
-    // Inicializar la instancia del navegador
-    WebDriver driver = null;
+public class FirstTest extends BaseTest{
 
     @Test
     public void testWiki() {

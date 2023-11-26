@@ -66,10 +66,4 @@ public class HomePage extends BasePage {
         this.driver.get(url);
         PageFactory.initElements(driver, this);
     }
-//    // Analizando lista
-//    List<WebElement> playersList = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-//            By.cssSelector(".references > li")));
-//
-//    // Comprueba si la lista es de 5 elementos
-//        softAssert.assertEquals(playersList.size(),5);
 }
