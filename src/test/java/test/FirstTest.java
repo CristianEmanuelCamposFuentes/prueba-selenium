@@ -53,5 +53,12 @@ public class FirstTest extends BaseTest{
         Assert.assertTrue(!menuSelenium_list.isEmpty());
 
         Assert.assertEquals(menuSelenium_list.size(), 9);
+
+        //    // Analizando lista
+//    List<WebElement> playersList = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+//            By.cssSelector(".references > li")));
+//
+//    // Comprueba si la lista es de 5 elementos
+//        softAssert.assertEquals(playersList.size(),5);
     }
 }
