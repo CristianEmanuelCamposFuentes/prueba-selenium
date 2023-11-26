@@ -32,7 +32,7 @@ public class BaseTest {
     }
 
     //METODO PARA OBTENER EL HOMEPAGE
-    public HomePage getHomePage() {
-        return new HomePage(driver, "https://www.wikipedia.org");
+    public HomePage getHomePage(String url) {
+        return new HomePage(driver, url);
     }
 }

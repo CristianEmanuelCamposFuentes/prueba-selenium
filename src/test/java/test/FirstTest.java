@@ -12,7 +12,7 @@ public class FirstTest extends BaseTest{
     public void testWiki() {
         driver.manage().window().maximize();
 
-        HomePage homePage = getHomePage();
+        HomePage homePage = getHomePage("https://www.wikipedia.com");
         homePage.setSearchInput("Selenium");
         softAssert.assertEquals(homePage.getFooterText(), "Puedes apoyar nuestro trabajo con una donación.");
         homePage.clickOnSearch();
