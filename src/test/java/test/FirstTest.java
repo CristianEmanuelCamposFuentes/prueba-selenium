@@ -3,6 +3,7 @@ package test;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HomePage;
+import pages.SearchResults;
 
 
 public class FirstTest extends BaseTest{
@@ -15,7 +16,8 @@ public class FirstTest extends BaseTest{
         HomePage homePage = getHomePage("https://www.wikipedia.com");
         homePage.setSearchInput("Selenium");
         softAssert.assertEquals(homePage.getFooterText(), "Puedes apoyar nuestro trabajo con una donación.");
-        homePage.clickOnSearch();
+        SearchResults searchResults = homePage.clickOnSearch();
+        softAssert.assertEquals(searchResults.getPageText(), "Selenium");
         softAssert.assertAll();
 
 //        List<WebElement> menuSelenium_list =

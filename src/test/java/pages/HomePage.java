@@ -49,9 +49,10 @@ public class HomePage extends BasePage {
         webElement.click();
     }
 
-    public void clickOnSearch() {
+    public SearchResults clickOnSearch() {
         this.isElementDisplayed(this.searchButton);
         this.searchButton.click();
+        return new SearchResults(this.driver);
     }
 
     public void clickOnOptions() {
