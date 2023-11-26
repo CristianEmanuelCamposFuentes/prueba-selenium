@@ -2,7 +2,6 @@ package test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import pages.HomePage;
@@ -28,13 +27,11 @@ public class BaseTest {
         // De todas formas, se recomienda quit() en lugar de close(),
         // para cerrar completamente el navegador y liberar recursos
         if (driver != null){
-//            driver.close();
+            driver.close();
         }
     }
 
     //METODO PARA OBTENER EL HOMEPAGE
-
-
     public HomePage getHomePage() {
         return new HomePage(driver, "https://www.wikipedia.org");
     }

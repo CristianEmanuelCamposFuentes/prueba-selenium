@@ -4,8 +4,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HomePage;
 
-
-
 public class SecondTest extends BaseTest {
     HomePage homePage;
     SoftAssert softAssert = new SoftAssert();
